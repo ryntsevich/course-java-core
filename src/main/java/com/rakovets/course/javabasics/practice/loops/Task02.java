@@ -32,8 +32,20 @@ class Task02 {
      * @return текст, который содержит столбец с номерами строк, где каждый номер на новой строке
      */
     static String generateNumbersColumn(int numberRows, boolean isEnableHeaderRow) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String result;
+        int i = 1;
+        if (isEnableHeaderRow) {
+            result = "\n";
+            numberRows--;
+        } else {
+            result = "";
+        }
+        for (; i <= numberRows; i++) {
+            result += i;
+            if (i != numberRows) {
+                result += "\n";
+            }
+        }
+        return result;
     }
 }

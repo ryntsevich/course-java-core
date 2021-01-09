@@ -38,8 +38,28 @@ class Task10 {
      * @return количество простых чисел
      */
     static int countPrimeNumber(int startNumber, int finishNumber) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int counter = 0;
+        for (int i = startNumber; i <= finishNumber; i++) {
+            if (isPrimeNumber(i)) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    static boolean isPrimeNumber(int a) {
+        boolean result = true;
+
+        if (a != 1 && a != 2) {
+            int size = a / 2;
+            for (int i = 2; i <= size; i++) {
+                if (a % i == 0) {
+                    result = false;
+                    break;
+                }
+            }
+        }
+        System.out.printf("%d - %b\n", a, result);
+        return result;
     }
 }
