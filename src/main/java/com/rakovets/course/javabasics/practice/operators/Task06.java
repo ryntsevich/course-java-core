@@ -19,5 +19,11 @@ public class Task06 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int days = playingTimeInSeconds / 86400;
+        int hours = (playingTimeInSeconds % 86400) / 3600;
+        int minutes = ((playingTimeInSeconds % 86400) % 3600) / 60;
+        int seconds = ((playingTimeInSeconds % 86400) % 3600) % 60;
+        System.out.print(days + " " + hours + ":" + minutes + ":" + seconds);
+
     }
 }
