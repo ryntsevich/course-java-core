@@ -22,5 +22,8 @@ public class Task03 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        double annualSum = deposit * annualPercentage / 100;
+        double resultSum = deposit + annualSum * 5;
+        System.out.print(resultSum);
     }
 }
