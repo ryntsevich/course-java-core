@@ -11,6 +11,7 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
  * @author Dmitry Rakovets
  */
 public class Task03 extends StandardInputTask {
+    private static final int PERCENT = 100;
     /**
      * The entry point of the task
      *
@@ -20,7 +21,7 @@ public class Task03 extends StandardInputTask {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int currentHealthPoint = 10;
+        int currentHealthPoint = 101;
         int maxHealthPoint = 100;
 
         String colorHealthPoint = getColorHealthPoint(currentHealthPoint, maxHealthPoint);
@@ -39,6 +40,19 @@ public class Task03 extends StandardInputTask {
     static String getColorHealthPoint(int currentHealthPoint, int maxHealthPoint) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String resultColor;
+        double playersPercent = (double) currentHealthPoint / maxHealthPoint * PERCENT;
+        if (playersPercent > 0 && playersPercent < 25) {
+            resultColor = "RED";
+        } else if (playersPercent >= 25 && playersPercent < 50) {
+            resultColor = "ORANGE";
+        } else if (playersPercent >= 50 && playersPercent < 75) {
+            resultColor = "YELLOW";
+        } else if (playersPercent >= 75 && playersPercent <= 100) {
+            resultColor = "GREEN";
+        } else {
+            resultColor = null;
+        }
+        return resultColor;
     }
 }
