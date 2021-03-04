@@ -2,6 +2,8 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
 
 import com.rakovets.course.javabasics.util.StandardInputTask;
 
+import java.io.BufferedReader;
+
 /**
  * Разработать программу для desktop приложения:
  * которая преобразует номер дня недели в его словесный аналог.
@@ -33,6 +35,33 @@ public class Task04 extends StandardInputTask {
     static String getDayOfWeekNumber(byte dayOfWeekNumber) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String day;
+        switch (dayOfWeekNumber) {
+            case 1:
+                day = "MONDAY";
+                break;
+            case 2:
+                day = "TUESDAY";
+                break;
+            case 3:
+                day = "WEDNESDAY";
+                break;
+            case 4:
+                day = "THURSDAY";
+                break;
+            case 5:
+                day = "FRIDAY";
+                break;
+            case 6:
+                day = "SATURDAY";
+                break;
+            case 7:
+                day = "SUNDAY";
+                break;
+            default:
+                day = null;
+                break;
+        }
+        return day;
     }
 }
