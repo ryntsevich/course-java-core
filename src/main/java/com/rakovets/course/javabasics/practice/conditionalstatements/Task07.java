@@ -12,6 +12,9 @@ package com.rakovets.course.javabasics.practice.conditionalstatements;
  */
 
 public class Task07 {
+    private static final int FOUR = 4;
+    private static final int FOUR_HUNDRED = 400;
+
     /**
      * The entry point of the task
      *
@@ -36,6 +39,6 @@ public class Task07 {
     static boolean isLeapYear(int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return false;
+        return (year % FOUR == 0) && (year % FOUR_HUNDRED != 0);
     }
 }
