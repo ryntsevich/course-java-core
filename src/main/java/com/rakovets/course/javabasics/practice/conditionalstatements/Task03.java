@@ -11,7 +11,7 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
  * @author Dmitry Rakovets
  */
 public class Task03 extends StandardInputTask {
-    private static final int PERCENT = 100;
+    private static final int ONE_HUNDRED_PERCENT = 100;
     /**
      * The entry point of the task
      *
@@ -41,7 +41,7 @@ public class Task03 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         String resultColor;
-        double playersPercent = (double) currentHealthPoint / maxHealthPoint * PERCENT;
+        double playersPercent = (double) currentHealthPoint / maxHealthPoint * ONE_HUNDRED_PERCENT;
         if (playersPercent > 0 && playersPercent < 25) {
             resultColor = "RED";
         } else if (playersPercent >= 25 && playersPercent < 50) {
