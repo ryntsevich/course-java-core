@@ -48,6 +48,6 @@ public class Task06 {
         } else if (scoreFirstPlayer < scoreSecondPlayer) {
             scoreSecondPlayer += BONUS_POINT;
         }
-        return "Player 1: " + scoreFirstPlayer + ". Player 2: " + scoreSecondPlayer;
+        return String.format("Player 1: %d. Player 2: %d", scoreFirstPlayer, scoreSecondPlayer);
     }
 }
