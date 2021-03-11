@@ -50,7 +50,7 @@ public class Task14 {
     static String getZodiacYearName(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String zodiacYearName;
+        String zodiacYearName = null;
         int remainderYears = year % TWELVE_YEAR;
         switch (remainderYears) {
             case 0:
@@ -88,9 +88,6 @@ public class Task14 {
                 break;
             case 11:
                 zodiacYearName = "Ram";
-                break;
-            default:
-                zodiacYearName = null;
                 break;
         }
         return zodiacYearName;
