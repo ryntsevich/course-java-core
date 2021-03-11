@@ -36,14 +36,14 @@ public class Task13 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int numberFloor;
         int numberApartmentsInPorch = numberApartmentsPerFloor * numberFloors;
-        boolean isRemainder = apartmentNumber % numberApartmentsInPorch != 0;
         int remainder = apartmentNumber % numberApartmentsInPorch;
-        if (isRemainder) {
+        if (remainder != 0) {
             numberFloor = (remainder % numberApartmentsPerFloor == 0)
                     ? remainder / numberApartmentsPerFloor
                     : remainder / numberApartmentsPerFloor + 1;
-        } else numberFloor = numberFloors;
-
+        } else {
+            numberFloor = numberFloors;
+        }
         return numberFloor;
     }
 }
