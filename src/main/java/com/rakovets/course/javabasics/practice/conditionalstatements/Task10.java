@@ -39,13 +39,9 @@ public class Task10 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         int result;
         if (firstFuelReserves <= secondFuelReserves) {
-            result = (firstFuelReserves <= thirdFuelReserves)
-                    ? 1
-                    : 3;
+            result = (firstFuelReserves <= thirdFuelReserves) ? 1 : 3;
         } else {
-            result = (secondFuelReserves <= thirdFuelReserves)
-                    ? 2
-                    : 3;
+            result = (secondFuelReserves <= thirdFuelReserves) ? 2 : 3;
         }
         return result;
     }
