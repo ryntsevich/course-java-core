@@ -47,7 +47,7 @@ public class Task12 {
     static String getZodiacSign(int day, int month, int year) {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        String signZodiac;
+        String signZodiac = null;
         if ((month == 12 && day > 21) || (month == 1 && day < 21)) {
             signZodiac = "Goat";
         } else if ((month == 1 && day > 20) || (month == 2 && day < 20)) {
@@ -72,8 +72,7 @@ public class Task12 {
             signZodiac = "Scorpion";
         } else if ((month == 11 && day > 22) || (month == 12 && day < 22)) {
             signZodiac = "Archer";
-        } else signZodiac = null;
-
+        }
         return signZodiac;
     }
 }
