@@ -7,6 +7,9 @@ package com.rakovets.course.javabasics.practice.loops;
  * @author Dmitry Rakovets
  */
 class Task05 {
+    private static final int AVAILABLE_HOURS_FOR_KILL = 24;
+    private static final int ONE_HUNDRED_PERCENT = 100;
+
     /**
      * The entry point of the task
      *
@@ -16,9 +19,9 @@ class Task05 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int healthPoints = 1000;
-        double regenerationPercentFromCurrentHealth = 10;
-        int averageDamagePerHour = 200;
+        int healthPoints = 10000;
+        double regenerationPercentFromCurrentHealth = 5.0;
+        int averageDamagePerHour = 917;
 
         double raidTime = calculateRaidTime(healthPoints, regenerationPercentFromCurrentHealth, averageDamagePerHour);
         System.out.printf("Result: %f", raidTime);
@@ -33,8 +36,15 @@ class Task05 {
      * @return время для убийства RaidBoss (когда party не справляется за 24 часа, то вывести -1)
      */
     static int calculateRaidTime(int healthPoints, double regenerationPercentPerHour, int averageDamagePerHour) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int timeForKill = -1;
+        double resultHealth = healthPoints;
+        for (int i = 1; i <= AVAILABLE_HOURS_FOR_KILL; i++) {
+            resultHealth += resultHealth * regenerationPercentPerHour / ONE_HUNDRED_PERCENT - averageDamagePerHour;
+            if (resultHealth <= 0) {
+                timeForKill = i;
+                break;
+            }
+        }
+        return timeForKill;
     }
 }
