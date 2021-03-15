@@ -1,5 +1,8 @@
 package com.rakovets.course.javabasics.practice.loops;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Разработать программу для сети оптовых гипермаркетов.
  * Необходимо сформировать список цен для некоторого продукта.
@@ -15,6 +18,7 @@ package com.rakovets.course.javabasics.practice.loops;
  * @author Dmitry Rakovets
  */
 class Task09 {
+    private static final int ONE_HUNDRED_PERCENT = 100;
     /**
      * The entry point of the task
      *
@@ -24,11 +28,11 @@ class Task09 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startNumberItems = 4;
-        double startPriceAllItems = 3;
+        int startNumberItems = 5;
+        double startPriceAllItems = 100.0;
         int differentialNumberItems = 5;
-        double differentialSell = 4;
-        int sizeTotalPrice = 6;
+        double differentialSell = 1.0;
+        int sizeTotalPrice = 20;
 
         String totalPriceList = generateTotalPriceList(startNumberItems, startPriceAllItems, differentialNumberItems, differentialSell, sizeTotalPrice);
         System.out.printf("Result:\n%s", totalPriceList);
@@ -49,8 +53,18 @@ class Task09 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int numberItems = startNumberItems;
+        double cost = BigDecimal.valueOf(startPriceAllItems).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        String price = numberItems + " - " + cost + " with sell 0.0" + "%";
+        double priceOneItem = startPriceAllItems / startNumberItems;
+
+        for (int i = 1; i < sizeTotalPrice; i++) {
+            numberItems += differentialNumberItems;
+            double costWithDiscount = (numberItems * priceOneItem) - ((numberItems * priceOneItem) * differentialSell / ONE_HUNDRED_PERCENT);
+            cost = BigDecimal.valueOf(costWithDiscount).setScale(2, RoundingMode.HALF_UP).doubleValue();
+            price += "\n" + numberItems + " - " + cost + " with sell " + differentialSell + "%";
+            differentialSell ++;
+        }
+        return price;
     }
 }
