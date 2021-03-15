@@ -20,7 +20,7 @@ class Task06 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        long amount = 1500;
+        long amount = -5960000000000L;
 
         String amountWithAccountingFormat = convertToAccountingFormat(amount);
         System.out.printf("Result: %s", amountWithAccountingFormat);
@@ -34,8 +34,23 @@ class Task06 {
      * @return сумма в бухгалтерском формате
      */
     static String convertToAccountingFormat(long amount) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String resultFormat = "";
+        boolean isLessZero = amount < 0;
+        if (isLessZero) {
+            amount = Math.abs(amount);
+        }
+        if (amount == 0) {
+            resultFormat = "0";
+        }
+        while (amount > 0) {
+            resultFormat = (amount % 1000 == 0)
+                    ? "000" + " " + resultFormat
+                    : amount % 1000 + " " + resultFormat;
+            amount = amount / 1000;
+        }
+        if (isLessZero) {
+            resultFormat = "-" + resultFormat;
+        }
+        return resultFormat.trim();
     }
 }
