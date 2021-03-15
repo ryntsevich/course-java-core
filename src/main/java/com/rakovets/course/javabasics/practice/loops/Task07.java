@@ -9,6 +9,8 @@ import java.math.RoundingMode;
  * @author Dmitry Rakovets
  */
 class Task07 {
+    private static final int ONE_HUNDRED_PERCENT = 100;
+
     /**
      * The entry point of the task
      *
@@ -18,8 +20,8 @@ class Task07 {
         //FIXME
         // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
         // аргументов. Типы данных изменять нельзя
-        int startDistance = 1000;
-        int finishDistance = 40000;
+        int startDistance = 13;
+        int finishDistance = 20;
         double dailyProgress = 5;
 
         double totalDistance = calculateTotalDistance(startDistance, finishDistance, dailyProgress);
@@ -39,6 +41,13 @@ class Task07 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double totalDistance = 0;
+        double dailyDistance = startDistance;
+        if (startDistance > 0) {
+            while (dailyDistance < finishDistance) {
+                dailyDistance += dailyDistance * dailyProgressAsPercentage / ONE_HUNDRED_PERCENT;
+                totalDistance += dailyDistance;
+            }
+        }
         return BigDecimal.valueOf(totalDistance).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
