@@ -10,6 +10,7 @@ import java.math.RoundingMode;
  */
 class Task07 {
     private static final int ONE_HUNDRED_PERCENT = 100;
+    private static final int ZERO_DISTANCE = 0;
 
     /**
      * The entry point of the task
@@ -42,7 +43,7 @@ class Task07 {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         double totalDistance = 0;
         double dailyDistance = startDistance;
-        if (startDistance > 0) {
+        if (startDistance > ZERO_DISTANCE) {
             while (dailyDistance < finishDistance) {
                 dailyDistance += dailyDistance * dailyProgressAsPercentage / ONE_HUNDRED_PERCENT;
                 totalDistance += dailyDistance;
