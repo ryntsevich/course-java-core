@@ -35,21 +35,20 @@ class Task06 {
      */
     static String convertToAccountingFormat(long amount) {
         String resultFormat = "";
-        boolean isLessZero = amount < 0;
-        if (isLessZero) {
-            amount = Math.abs(amount);
-        }
         if (amount == 0) {
             resultFormat = "0";
-        }
-        while (amount > 0) {
-            resultFormat = (amount % 1000 == 0)
-                    ? "000" + " " + resultFormat
-                    : amount % 1000 + " " + resultFormat;
-            amount = amount / 1000;
-        }
-        if (isLessZero) {
-            resultFormat = "-" + resultFormat;
+        } else {
+            boolean isLessZero = amount < 0;
+            if (isLessZero) {
+                amount = Math.abs(amount);
+            }
+            while (amount > 0) {
+                resultFormat = ((amount % 1000 == 0) ? "000": amount % 1000) + " " + resultFormat;
+                amount = amount / 1000;
+            }
+            if (isLessZero) {
+                resultFormat = "-" + resultFormat;
+            }
         }
         return resultFormat.trim();
     }
