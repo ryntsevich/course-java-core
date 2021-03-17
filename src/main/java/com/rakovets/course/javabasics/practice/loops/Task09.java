@@ -19,6 +19,7 @@ import java.math.RoundingMode;
  */
 class Task09 {
     private static final int ONE_HUNDRED_PERCENT = 100;
+
     /**
      * The entry point of the task
      *
@@ -53,18 +54,19 @@ class Task09 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, double differentialSell, int sizeTotalPrice) {
+        String price = "";
         int numberItems = startNumberItems;
-        double cost = BigDecimal.valueOf(startPriceAllItems).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        String price = numberItems + " - " + cost + " with sell 0.0" + "%";
         double priceOneItem = startPriceAllItems / startNumberItems;
-
-        for (int i = 1; i < sizeTotalPrice; i++) {
+        for (int i = 0; i < sizeTotalPrice; i++) {
+            double discountPercent = i * differentialSell;
+            double costWithDiscount = (ONE_HUNDRED_PERCENT - discountPercent) / ONE_HUNDRED_PERCENT * numberItems * priceOneItem;
+            price += numberItems + " - " + roundScaleTwoSigns(costWithDiscount) + " with sell " + discountPercent + "%\n";
             numberItems += differentialNumberItems;
-            double costWithDiscount = (numberItems * priceOneItem) - ((numberItems * priceOneItem) * differentialSell / ONE_HUNDRED_PERCENT);
-            cost = BigDecimal.valueOf(costWithDiscount).setScale(2, RoundingMode.HALF_UP).doubleValue();
-            price += "\n" + numberItems + " - " + cost + " with sell " + differentialSell + "%";
-            differentialSell ++;
         }
-        return price;
+        return price.trim();
+    }
+
+    private static double roundScaleTwoSigns(double costWithDiscount) {
+        return BigDecimal.valueOf(costWithDiscount).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }
