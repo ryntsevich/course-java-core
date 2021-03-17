@@ -54,12 +54,13 @@ class Task10 {
         boolean isPrimeNumber = true;
         if (number <= ONE_NUMBER) {
             isPrimeNumber = false;
-        }
-        double limit = Math.sqrt(number);
-        for (int j = TWO_NUMBER; j <= limit; j++) {
-            if (number % j == ZERO_REMAINDER) {
-                isPrimeNumber = false;
-                break;
+        } else {
+            double limit = Math.sqrt(number);
+            for (int i = TWO_NUMBER; i <= limit; i++) {
+                if (number % i == ZERO_REMAINDER) {
+                    isPrimeNumber = false;
+                    break;
+                }
             }
         }
         return isPrimeNumber;
