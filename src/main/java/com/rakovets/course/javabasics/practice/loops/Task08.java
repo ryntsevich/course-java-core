@@ -49,16 +49,12 @@ class Task08 {
      * <code>BigDecimal.valueOf(currentPriceAllItemsWithSell).setScale(2, RoundingMode.HALF_UP).doubleValue()</code>
      */
     static String generateTotalPriceList(int startNumberItems, double startPriceAllItems, int differentialNumberItems, int sizeTotalPrice) {
-        int numberItems = startNumberItems;
-        double cost = BigDecimal.valueOf(startPriceAllItems).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        String price = numberItems + " - " + cost;
+        String price = "";
         double priceOneItem = startPriceAllItems / startNumberItems;
-
-        for (int i = 1; i < sizeTotalPrice; i++) {
-            numberItems += differentialNumberItems;
-            cost = BigDecimal.valueOf(numberItems * priceOneItem).setScale(2, RoundingMode.HALF_UP).doubleValue();
-            price += "\n" + numberItems + " - " + cost;
+        int endNumberItems = differentialNumberItems * (sizeTotalPrice - 1) + startNumberItems;
+        for (int i = startNumberItems; i <= endNumberItems; i += differentialNumberItems) {
+            price += i + " - " + BigDecimal.valueOf(i * priceOneItem).setScale(2, RoundingMode.HALF_UP).doubleValue() + "\n";
         }
-        return price;
+        return price.trim();
     }
 }
