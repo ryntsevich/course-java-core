@@ -49,9 +49,13 @@ class Task01 {
      * @return минимальная отметка
      */
     static int getMinMark(int[] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int minMark = marks[0];
+        for (int i = 0; i < marks.length; i++) {
+            if (marks[i] < minMark) {
+                minMark = marks[i];
+            }
+        }
+        return minMark;
     }
 
     /**
