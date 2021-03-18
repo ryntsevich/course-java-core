@@ -70,8 +70,14 @@ class Task02 {
      * @return максимальная отметка
      */
     static int getMaxMark(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0;
+        int maxMark = marks[0][0];
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] > maxMark) {
+                    maxMark = marks[i][j];
+                }
+            }
+        }
+        return maxMark;
     }
 }
