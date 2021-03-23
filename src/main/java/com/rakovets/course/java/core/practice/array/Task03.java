@@ -53,9 +53,17 @@ class Task03 {
      * @return минимальная отметка
      */
     static int[] getMinMarks(int[][] marks) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int[] resultArrayWithMinMarks = new int[marks.length];
+        for (int i = 0; i < marks.length; i++) {
+            int minMark = marks[i][0];
+            for (int j = 0; j < marks[i].length; j++) {
+                if (marks[i][j] < minMark) {
+                    minMark = marks[i][j];
+                }
+            }
+            resultArrayWithMinMarks[i] = minMark;
+        }
+        return resultArrayWithMinMarks;
     }
 
     /**
