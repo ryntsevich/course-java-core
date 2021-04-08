@@ -71,4 +71,18 @@ public class StringUtilTest {
         String actual = StringUtil.getTrimAndUpperCase(str);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> getSubstringProviderArguments() {
+        return Stream.of(
+                Arguments.of("Hell", "Hello", 0, 4),
+                Arguments.of("Hello", "  Hello", 2, 7)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getSubstringProviderArguments")
+    void getSubstring(String expected, String str, int beginIndex, int endIndex) {
+        String actual = StringUtil.getSubstring(str, beginIndex, endIndex);
+        Assertions.assertEquals(expected,actual);
+    }
 }
