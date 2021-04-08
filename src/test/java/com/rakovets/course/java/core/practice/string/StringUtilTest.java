@@ -55,4 +55,20 @@ public class StringUtilTest {
         boolean actual = StringUtil.isEquals(str1, str2);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> getTrimAndUpperCaseProviderArguments() {
+        return Stream.of(
+                Arguments.of("HELLO", "hello"),
+                Arguments.of("HELLO", " Hello "),
+                Arguments.of("HELLO", "  HELLO  "),
+                Arguments.of("HELLO JAVA", " Hello java ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getTrimAndUpperCaseProviderArguments")
+    void getTrimAndUpperCase(String expected, String str) {
+        String actual = StringUtil.getTrimAndUpperCase(str);
+        Assertions.assertEquals(expected, actual);
+    }
 }
