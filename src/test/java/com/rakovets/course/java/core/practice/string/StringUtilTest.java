@@ -39,4 +39,20 @@ public class StringUtilTest {
         int actual = StringUtil.getIndexForChar(str, symbol);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> isEqualsProviderArguments() {
+        return Stream.of(
+                Arguments.of(true, "Hello", "Hello"),
+                Arguments.of(false, "Hello", "hello"),
+                Arguments.of(false, "poca", "роса"),
+                Arguments.of(false, "Hello", "Hello ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("isEqualsProviderArguments")
+    void isEquals(boolean expected, String str1, String str2) {
+        boolean actual = StringUtil.isEquals(str1, str2);
+        Assertions.assertEquals(expected, actual);
+    }
 }
