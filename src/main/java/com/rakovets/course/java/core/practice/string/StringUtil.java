@@ -13,4 +13,7 @@ public class StringUtil {
     public static String getTrimAndUpperCase(String str) {
         return str.trim().toUpperCase();
     }
+    public static String getSubstring(String str, int beginIndex, int endIndex) {
+        return str.substring(beginIndex, endIndex);
+    }
 }
