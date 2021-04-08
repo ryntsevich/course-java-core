@@ -10,4 +10,7 @@ public class StringUtil {
     public static boolean isEquals(String str1, String str2) {
         return str1.equals(str2);
     }
+    public static String getTrimAndUpperCase(String str) {
+        return str.trim().toUpperCase();
+    }
 }
