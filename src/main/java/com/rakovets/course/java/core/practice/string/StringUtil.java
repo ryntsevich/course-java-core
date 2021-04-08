@@ -4,4 +4,7 @@ public class StringUtil {
     public static String getConcatString(String str1, String str2) {
         return str1.concat(str2);
     }
+    public static int getIndexForChar(String str, char symbol) {
+        return str.indexOf(symbol);
+    }
 }
