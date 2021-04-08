@@ -26,7 +26,7 @@ public class Rectangle {
     }
 
     public int getPerimeter() {
-        return (secondPoint.getX() - firstPoint.getX()) * 2 + (secondPoint.getY() - firstPoint.getY()) * 2;
+        return 2 * (secondPoint.getX() - firstPoint.getX() + secondPoint.getY() - firstPoint.getY());
     }
 
     public int getArea() {

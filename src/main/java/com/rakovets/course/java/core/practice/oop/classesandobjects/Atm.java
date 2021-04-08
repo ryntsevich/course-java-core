@@ -1,12 +1,10 @@
 package com.rakovets.course.java.core.practice.oop.classesandobjects;
 
-import java.util.Arrays;
-
 public class Atm {
     private int numberBanknotes100;
     private int numberBanknotes50;
     private int numberBanknotes20;
-    public String[] array = new String[0];
+    private String[] array = new String[0];
 
     public Atm(int numberBanknotes100, int numberBanknotes50, int numberBanknotes20) {
         this.numberBanknotes100 = numberBanknotes100;
@@ -43,20 +41,6 @@ public class Atm {
         return isPossible;
     }
 
-    public int getAmount(int numberBanknotes100, int numberBanknotes50, int numberBanknotes20) {
-        return 100 * numberBanknotes100 + 50 * numberBanknotes50 + 20 * numberBanknotes20;
-    }
-
-    public String[] addToNewArray(String[] old, String item) {
-        int newSize = old.length + 1;
-        String[] result = new String[newSize];
-        for (int i = 0; i < old.length; i++) {
-            result[i] = old[i];
-        }
-        result[newSize - 1] = item;
-        return result;
-    }
-
     public String getOptionsCombinationBanknotes(int amount) {
         String optionsCombination = "";
         String combination = "";
@@ -90,6 +74,20 @@ public class Atm {
                 }
             }
         }
+        return result;
+    }
+
+    private int getAmount(int numberBanknotes100, int numberBanknotes50, int numberBanknotes20) {
+        return 100 * numberBanknotes100 + 50 * numberBanknotes50 + 20 * numberBanknotes20;
+    }
+
+    private String[] addToNewArray(String[] old, String item) {
+        int newSize = old.length + 1;
+        String[] result = new String[newSize];
+        for (int i = 0; i < old.length; i++) {
+            result[i] = old[i];
+        }
+        result[newSize - 1] = item;
         return result;
     }
 }
