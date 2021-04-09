@@ -83,7 +83,7 @@ public class StringUtilTest {
     @MethodSource("getSubstringProviderArguments")
     void getSubstring(String expected, String str, int beginIndex, int endIndex) {
         String actual = StringUtil.getSubstring(str, beginIndex, endIndex);
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     public static Stream<Arguments> replaceEmojiProviderArguments() {
@@ -99,6 +99,24 @@ public class StringUtilTest {
     @MethodSource("replaceEmojiProviderArguments")
     void replaceEmoji(String expected, String str) {
         String actual = StringUtil.replaceEmoji(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    public static Stream<Arguments> isStartWithAndEndWithProviderArguments() {
+        return Stream.of(
+                Arguments.of(true, "HelloPumpkinHello", "Hello"),
+                Arguments.of(false, "HelloPumpkinHello", "u"),
+                Arguments.of(false, "HelloPumpkinHello", "He"),
+                Arguments.of(false, "HelloPumpkinHello", "lo"),
+                Arguments.of(true, "HelloPumpkinHello", "hello"),
+                Arguments.of(true, " ", " ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("isStartWithAndEndWithProviderArguments")
+    void isStartWithAndEndWith(boolean expected, String text, String word) {
+        boolean actual = StringUtil.isStartWithAndEndWith(text, word);
         Assertions.assertEquals(expected, actual);
     }
 }
