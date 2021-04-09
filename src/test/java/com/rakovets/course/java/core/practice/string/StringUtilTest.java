@@ -137,4 +137,20 @@ public class StringUtilTest {
         int actual = StringUtil.getAmountVowels(str);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> getAmountPunctuationMarkProviderArguments() {
+        return Stream.of(
+                Arguments.of(1, "!"),
+                Arguments.of(0, "fgdfkltrsd"),
+                Arguments.of(4, "????.,!"),
+                Arguments.of(0, " ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getAmountPunctuationMarkProviderArguments")
+    void getAmountPunctuationMark(int expected, String str) {
+        int actual = StringUtil.getAmountPunctuationMark(str);
+        Assertions.assertEquals(expected, actual);
+    }
 }
