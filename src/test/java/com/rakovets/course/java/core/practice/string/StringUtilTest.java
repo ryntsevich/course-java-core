@@ -119,4 +119,22 @@ public class StringUtilTest {
         boolean actual = StringUtil.isStartWithAndEndWith(text, word);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> getAmountVowelsProviderArguments() {
+        return Stream.of(
+                Arguments.of(1, "asd"),
+                Arguments.of(0, "fgdfkltrsd"),
+                Arguments.of(0, "олаф"),
+                Arguments.of(5, "ooooo"),
+                Arguments.of(0, " "),
+                Arguments.of(5, "OOoia")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getAmountVowelsProviderArguments")
+    void test(int expected, String str) {
+        int actual = StringUtil.getAmountVowels(str);
+        Assertions.assertEquals(expected, actual);
+    }
 }
