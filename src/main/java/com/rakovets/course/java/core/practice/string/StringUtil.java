@@ -1,6 +1,5 @@
 package com.rakovets.course.java.core.practice.string;
 
-
 public class StringUtil {
     public static String getConcatString(String str1, String str2) {
         return str1.concat(str2);
@@ -32,5 +31,15 @@ public class StringUtil {
         return text.startsWith(word) && text.endsWith(word);
     }
 
-
+    public static int getAmountVowels(String str) {
+        int counter = 0;
+        str = str.toLowerCase();
+        char[] charArray = str.toCharArray();
+        for (char letter : charArray) {
+            if (letter == 'e' || letter == 'u' || letter == 'i' || letter == 'o' || letter == 'a') {
+                counter++;
+            }
+        }
+        return counter;
+    }
 }
