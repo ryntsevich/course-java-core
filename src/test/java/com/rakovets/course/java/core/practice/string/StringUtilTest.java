@@ -85,4 +85,20 @@ public class StringUtilTest {
         String actual = StringUtil.getSubstring(str, beginIndex, endIndex);
         Assertions.assertEquals(expected,actual);
     }
+
+    public static Stream<Arguments> replaceEmojiProviderArguments() {
+        return Stream.of(
+                Arguments.of(":)", ":("),
+                Arguments.of("Hello :)", "Hello :("),
+                Arguments.of("Hello(", "Hello("),
+                Arguments.of(":):):):)", ":(:(:(:(")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("replaceEmojiProviderArguments")
+    void replaceEmoji(String expected, String str) {
+        String actual = StringUtil.replaceEmoji(str);
+        Assertions.assertEquals(expected, actual);
+    }
 }
