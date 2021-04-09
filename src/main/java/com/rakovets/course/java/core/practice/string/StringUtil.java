@@ -42,4 +42,16 @@ public class StringUtil {
         }
         return counter;
     }
+
+    public static int getAmountPunctuationMark(String str) {
+        int counter = 0;
+        char[] punctuationMarkArray = str.toCharArray();
+        for (char mark : punctuationMarkArray) {
+            if (mark == '.' || mark == '?' || mark == '!' || mark == ',') {
+                counter++;
+            }
+        }
+        return counter;
+
+    }
 }
