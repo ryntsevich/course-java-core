@@ -52,6 +52,11 @@ public class StringUtil {
             }
         }
         return counter;
+    }
 
+    public static boolean isPalindrome(String str) {
+        str = str.trim();
+        StringBuilder strBuilder = new StringBuilder(str);
+        return strBuilder.reverse().toString().equalsIgnoreCase(str);
     }
 }
