@@ -153,4 +153,20 @@ public class StringUtilTest {
         int actual = StringUtil.getAmountPunctuationMark(str);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> isPalindromeProviderArguments() {
+        return Stream.of(
+                Arguments.of(true, "deed"),
+                Arguments.of(false, "dear"),
+                Arguments.of(true, "DEed"),
+                Arguments.of(true,"  deed ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("isPalindromeProviderArguments")
+    void isPalindrome(boolean expected, String str) {
+        boolean actual = StringUtil.isPalindrome(str);
+        Assertions.assertEquals(expected, actual);
+    }
 }
