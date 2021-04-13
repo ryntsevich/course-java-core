@@ -64,4 +64,9 @@ public class StringUtil {
         String[] words = str.split("\\s+");
         return words.length;
     }
+
+    public static String getInitials(String str) {
+        String[] words = str.trim().toUpperCase().split("\\s+");
+        return words[0].charAt(0) + "" + words[1].charAt(0);
+    }
 }
