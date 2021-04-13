@@ -159,7 +159,7 @@ public class StringUtilTest {
                 Arguments.of(true, "deed"),
                 Arguments.of(false, "dear"),
                 Arguments.of(true, "DEed"),
-                Arguments.of(true,"  deed ")
+                Arguments.of(true, "  deed ")
         );
     }
 
@@ -167,6 +167,21 @@ public class StringUtilTest {
     @MethodSource("isPalindromeProviderArguments")
     void isPalindrome(boolean expected, String str) {
         boolean actual = StringUtil.isPalindrome(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    public static Stream<Arguments> getAmountWords() {
+        return Stream.of(
+                Arguments.of(4, "deed dddf sdf adf"),
+                Arguments.of(4, "deed  dddf  sdf  adf"),
+                Arguments.of(0, " ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getAmountWords")
+    void getAmountWords(int expected, String str) {
+        int actual = StringUtil.getAmountWords(str);
         Assertions.assertEquals(expected, actual);
     }
 }
