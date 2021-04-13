@@ -184,4 +184,18 @@ public class StringUtilTest {
         int actual = StringUtil.getAmountWords(str);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> getInitials() {
+        return Stream.of(
+                Arguments.of("DR", "DmitRY RakOVets"),
+                Arguments.of("DR", "dmitRY rakOVets")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getInitials")
+    void getInitials(String expected, String str) {
+        String actual = StringUtil.getInitials(str);
+        Assertions.assertEquals(expected, actual);
+    }
 }
