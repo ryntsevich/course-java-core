@@ -59,4 +59,9 @@ public class StringUtil {
         StringBuilder strBuilder = new StringBuilder(str);
         return strBuilder.reverse().toString().equalsIgnoreCase(str);
     }
+
+    public static int getAmountWords(String str) {
+        String[] words = str.split("\\s+");
+        return words.length;
+    }
 }
