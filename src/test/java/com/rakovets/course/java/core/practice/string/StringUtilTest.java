@@ -230,4 +230,20 @@ public class StringUtilTest {
         String actual = StringUtil.getUniqueLetters(str1, str2);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> isIdenticalArraysProviderArguments() {
+        return Stream.of(
+                Arguments.of(true, new String[]{"srt"}, new String[]{"srt"}),
+                Arguments.of(true, new String[]{"aaa", "bbb", "ccc"}, new String[]{"bbb", "ccc", "aaa"}),
+                Arguments.of(false, new String[]{"srt"}, new String[]{"srtty"}),
+                Arguments.of(false, new String[]{"srt"}, new String[]{"srt", "fgfhg"})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("isIdenticalArraysProviderArguments")
+    void isIdenticalArrays(boolean expected, String[] array1, String[] array2) {
+        boolean actual = StringUtil.isIdenticalArrays(array1, array2);
+        Assertions.assertEquals(expected, actual);
+    }
 }
