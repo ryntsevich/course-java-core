@@ -105,4 +105,10 @@ public class StringUtil {
         }
         return str1Builder.append(str2Builder).toString().trim();
     }
+
+    public static boolean isIdenticalArrays(String[] array1, String[] array2){
+        Arrays.sort(array1);
+        Arrays.sort(array2);
+        return Arrays.equals(array1,array2);
+    }
 }
