@@ -1,5 +1,8 @@
 package com.rakovets.course.java.core.practice.string;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringUtil {
     public static String getConcatString(String str1, String str2) {
         return str1.concat(str2);
@@ -68,5 +71,15 @@ public class StringUtil {
     public static String getInitials(String str) {
         String[] words = str.trim().toUpperCase().split("\\s+");
         return words[0].charAt(0) + "" + words[1].charAt(0);
+    }
+
+    public static String getNumeralsString(String str) {
+        StringBuilder result = new StringBuilder();
+        Pattern pattern = Pattern.compile("\\d*");
+        Matcher matcher = pattern.matcher(str);
+        while (matcher.find()) {
+            result.append(matcher.group());
+        }
+        return result.toString();
     }
 }
