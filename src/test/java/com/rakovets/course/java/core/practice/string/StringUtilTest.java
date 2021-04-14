@@ -170,7 +170,7 @@ public class StringUtilTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    public static Stream<Arguments> getAmountWords() {
+    public static Stream<Arguments> getAmountWordsProviderArguments() {
         return Stream.of(
                 Arguments.of(4, "deed dddf sdf adf"),
                 Arguments.of(4, "deed  dddf  sdf  adf"),
@@ -179,13 +179,13 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("getAmountWords")
+    @MethodSource("getAmountWordsProviderArguments")
     void getAmountWords(int expected, String str) {
         int actual = StringUtil.getAmountWords(str);
         Assertions.assertEquals(expected, actual);
     }
 
-    public static Stream<Arguments> getInitials() {
+    public static Stream<Arguments> getInitialsProviderArguments() {
         return Stream.of(
                 Arguments.of("DR", "DmitRY RakOVets"),
                 Arguments.of("DR", "dmitRY rakOVets")
@@ -193,9 +193,25 @@ public class StringUtilTest {
     }
 
     @ParameterizedTest
-    @MethodSource("getInitials")
+    @MethodSource("getInitialsProviderArguments")
     void getInitials(String expected, String str) {
         String actual = StringUtil.getInitials(str);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    public static Stream<Arguments> getNumeralsStringProviderArguments() {
+        return Stream.of(
+                Arguments.of("345", "wer345"),
+                Arguments.of("", "dfcvgbhj"),
+                Arguments.of("", "   "),
+                Arguments.of("33333", "33333")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getNumeralsStringProviderArguments")
+    void getNumeralsString(String expected, String str) {
+        String actual = StringUtil.getNumeralsString(str);
         Assertions.assertEquals(expected, actual);
     }
 }
