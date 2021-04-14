@@ -214,4 +214,20 @@ public class StringUtilTest {
         String actual = StringUtil.getNumeralsString(str);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> getUniqueLettersProviderArguments() {
+        return Stream.of(
+                Arguments.of("v", "dc", "dcv"),
+                Arguments.of("abcdefghijkl", "abcde", "fghijkl"),
+                Arguments.of("v", "vabc", "abc"),
+                Arguments.of("", " ", " ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getUniqueLettersProviderArguments")
+    void getUniqueLetters(String expected, String str1, String str2) {
+        String actual = StringUtil.getUniqueLetters(str1, str2);
+        Assertions.assertEquals(expected, actual);
+    }
 }
