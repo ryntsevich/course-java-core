@@ -1,5 +1,6 @@
 package com.rakovets.course.java.core.practice.string;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -81,5 +82,27 @@ public class StringUtil {
             result.append(matcher.group());
         }
         return result.toString();
+    }
+
+    public static String getUniqueLetters(String str1, String str2) {
+        str1 = str1.trim().toLowerCase();
+        str2 = str2.trim().toLowerCase();
+        StringBuilder str1Builder = new StringBuilder(str1);
+        StringBuilder str2Builder = new StringBuilder(str2);
+        boolean isNotUnique = false;
+
+        for (int i = 0; i < str1Builder.length(); i++) {
+            for (int j = 0; j < str2Builder.length(); j++) {
+                if (str1Builder.charAt(i) == str2Builder.charAt(j)) {
+                    str2Builder.replace(j, j + 1, " ");
+                    isNotUnique = true;
+                }
+            }
+            if (isNotUnique) {
+                str1Builder.replace(i, i + 1, " ");
+            }
+            isNotUnique = false;
+        }
+        return str1Builder.append(str2Builder).toString().trim();
     }
 }
