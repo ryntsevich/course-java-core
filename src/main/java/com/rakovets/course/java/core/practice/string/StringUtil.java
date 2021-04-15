@@ -106,9 +106,23 @@ public class StringUtil {
         return str1Builder.append(str2Builder).toString().trim();
     }
 
-    public static boolean isIdenticalArrays(String[] array1, String[] array2){
+    public static boolean isIdenticalArrays(String[] array1, String[] array2) {
         Arrays.sort(array1);
         Arrays.sort(array2);
-        return Arrays.equals(array1,array2);
+        return Arrays.equals(array1, array2);
+    }
+
+    public static String compareSpeedOfAdditionMethod(int number) {
+        String resultString = "";
+        StringBuilder resultStringBuild = new StringBuilder();
+        long startTimeString = System.currentTimeMillis();
+        for (int i = 0; i < number; i++) {
+            resultString += "ra";
+        }
+        long timeSpentInString = System.currentTimeMillis() - startTimeString;
+        resultStringBuild.append("ra".repeat(number));
+        long timeSpentInStringBuilder = System.currentTimeMillis() - timeSpentInString - startTimeString;
+
+        return "String: " + timeSpentInString + "\nStringBuilder: " + timeSpentInStringBuilder;
     }
 }
