@@ -246,4 +246,19 @@ public class StringUtilTest {
         boolean actual = StringUtil.isIdenticalArrays(array1, array2);
         Assertions.assertEquals(expected, actual);
     }
+
+    public static Stream<Arguments> replaceDuplicateSymbolProviderArguments() {
+        return Stream.of(
+                Arguments.of("rhjk","rrrhjk"),
+                Arguments.of("rjhk","rjhk"),
+                Arguments.of(" r","    r")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("replaceDuplicateSymbolProviderArguments")
+    void replaceDuplicateSymbol(String expected, String str) {
+        String actual = StringUtil.replaceDuplicateSymbol(str);
+        Assertions.assertEquals(expected, actual);
+    }
 }
