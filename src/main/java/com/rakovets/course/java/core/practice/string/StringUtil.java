@@ -125,4 +125,8 @@ public class StringUtil {
 
         return "String: " + timeSpentInString + "\nStringBuilder: " + timeSpentInStringBuilder;
     }
+
+    public static String replaceDuplicateSymbol(String str) {
+        return str.replaceAll("(.)\\1+", "$1");
+    }
 }
