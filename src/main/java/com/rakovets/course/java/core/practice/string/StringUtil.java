@@ -38,9 +38,9 @@ public class StringUtil {
     public static int getAmountVowels(String str) {
         int counter = 0;
         str = str.toLowerCase();
-        char[] charArray = str.toCharArray();
-        for (char letter : charArray) {
-            if (letter == 'e' || letter == 'u' || letter == 'i' || letter == 'o' || letter == 'a') {
+        String vowels = "euioa";
+        for (char letter : str.toCharArray()) {
+            if (vowels.indexOf(letter) != -1) {
                 counter++;
             }
         }
@@ -62,6 +62,20 @@ public class StringUtil {
         str = str.trim();
         StringBuilder strBuilder = new StringBuilder(str);
         return strBuilder.reverse().toString().equalsIgnoreCase(str);
+    }
+
+    public static String[] getArraySubstrings(String str, int n) {
+        int size = str.length() / n + (str.length() % n == 0 ? 0 : 1);
+        String[] resultArray = new String[size];
+        for (int i = 0; i < resultArray.length; i++) {
+            if (i == resultArray.length - 1) {
+                resultArray[i] = str.substring(i * n);
+            } else {
+                resultArray[i] = str.substring(i * n, (i + 1) * n);
+            }
+        }
+        System.out.println(Arrays.toString(resultArray));
+        return resultArray;
     }
 
     public static int getAmountWords(String str) {
@@ -115,13 +129,14 @@ public class StringUtil {
     public static String compareSpeedOfAdditionMethod(int number) {
         String resultString = "";
         StringBuilder resultStringBuild = new StringBuilder();
-        long startTimeString = System.currentTimeMillis();
+        long startTimeString = System.nanoTime();
         for (int i = 0; i < number; i++) {
             resultString += "ra";
         }
-        long timeSpentInString = System.currentTimeMillis() - startTimeString;
-        resultStringBuild.append("ra".repeat(number));
-        long timeSpentInStringBuilder = System.currentTimeMillis() - timeSpentInString - startTimeString;
+        long timeSpentInString = System.nanoTime() - startTimeString;
+        startTimeString = System.nanoTime();
+        resultStringBuild.append("ra".repeat(Math.max(0, number)));
+        long timeSpentInStringBuilder = System.nanoTime() - startTimeString;
 
         return "String: " + timeSpentInString + "\nStringBuilder: " + timeSpentInStringBuilder;
     }
