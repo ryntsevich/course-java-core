@@ -1,8 +1,6 @@
 package com.rakovets.course.java.core.practice.string;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -18,10 +16,11 @@ public class StringUtilTest {
         );
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "Concat strings: ''{1}'', ''{2}''")
     @MethodSource("concatProviderArguments")
     void getConcatString(String expected, String str1, String str2) {
         String actual = StringUtil.getConcatString(str1, str2);
+
         Assertions.assertEquals(expected, actual);
     }
 
@@ -44,7 +43,7 @@ public class StringUtilTest {
         return Stream.of(
                 Arguments.of(true, "Hello", "Hello"),
                 Arguments.of(false, "Hello", "hello"),
-                Arguments.of(false, "poca", "роса"),
+                Arguments.of(false, "poca", "роса"), // latin VS cyrillic
                 Arguments.of(false, "Hello", "Hello ")
         );
     }
@@ -75,7 +74,8 @@ public class StringUtilTest {
     public static Stream<Arguments> getSubstringProviderArguments() {
         return Stream.of(
                 Arguments.of("Hell", "Hello", 0, 4),
-                Arguments.of("Hello", "  Hello", 2, 7)
+                Arguments.of("Hello", "  Hello", 2, 7),
+                Arguments.of("Hell", "  Hello", 2, 6)
         );
     }
 
@@ -91,6 +91,8 @@ public class StringUtilTest {
                 Arguments.of(":)", ":("),
                 Arguments.of("Hello :)", "Hello :("),
                 Arguments.of("Hello(", "Hello("),
+                Arguments.of("Hello : (", "Hello : ("),
+                Arguments.of("Hello ::)", "Hello ::("),
                 Arguments.of(":):):):)", ":(:(:(:(")
         );
     }
@@ -142,7 +144,7 @@ public class StringUtilTest {
         return Stream.of(
                 Arguments.of(1, "!"),
                 Arguments.of(0, "fgdfkltrsd"),
-                Arguments.of(4, "????.,!"),
+                Arguments.of(7, "????.,!"),
                 Arguments.of(0, " ")
         );
     }
@@ -202,6 +204,7 @@ public class StringUtilTest {
     public static Stream<Arguments> getNumeralsStringProviderArguments() {
         return Stream.of(
                 Arguments.of("345", "wer345"),
+                Arguments.of("34511345", "wer345sdfsdf1.1 sdfsd 345"),
                 Arguments.of("", "dfcvgbhj"),
                 Arguments.of("", "   "),
                 Arguments.of("33333", "33333")
@@ -249,9 +252,9 @@ public class StringUtilTest {
 
     public static Stream<Arguments> replaceDuplicateSymbolProviderArguments() {
         return Stream.of(
-                Arguments.of("rhjk","rrrhjk"),
-                Arguments.of("rjhk","rjhk"),
-                Arguments.of(" r","    r")
+                Arguments.of("rhjk", "rrrhjk"),
+                Arguments.of("rjhk", "rjhk"),
+                Arguments.of(" r", "    r")
         );
     }
 
@@ -260,5 +263,20 @@ public class StringUtilTest {
     void replaceDuplicateSymbol(String expected, String str) {
         String actual = StringUtil.replaceDuplicateSymbol(str);
         Assertions.assertEquals(expected, actual);
+    }
+
+    public static Stream<Arguments> getArraySubstringsProviderArguments() {
+        return Stream.of(
+                Arguments.of(new String[]{"re", "su", "lt"}, "result", 2),
+                Arguments.of(new String[]{"re", "su", "lt", "r"}, "resultr", 2),
+                Arguments.of(new String[]{"    r", "esult", "  "}, "    result  ",5)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("getArraySubstringsProviderArguments")
+    void getArraySubstrings(String[] expected, String str, int n) {
+        String[] actual = StringUtil.getArraySubstrings(str, n);
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
