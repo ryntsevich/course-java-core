@@ -1,10 +1,10 @@
 package com.rakovets.course.java.core.practice.oop.principles.battleground;
 
 public class Archer extends Hero {
-    private int DAMAGE = 30;
+    private final int DAMAGE = 30;
 
-    public Archer(String name) {
-        super(name);
+    public Archer(String name, int health) {
+        super(name,health);
     }
 
     @Override
