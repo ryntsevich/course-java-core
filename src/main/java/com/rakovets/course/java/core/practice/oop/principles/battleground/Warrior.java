@@ -1,13 +1,15 @@
 package com.rakovets.course.java.core.practice.oop.principles.battleground;
 
 public class Warrior extends Hero {
+    private int DAMAGE = 50;
+
     public Warrior(String name) {
         super(name);
     }
 
     @Override
-    public void attackEnemy() {
-        System.out.println("Attack Warrior!");
+    public void attackEnemy(Enemy angryMan) {
+        angryMan.takeDamage(DAMAGE);
     }
 
 }
