@@ -11,4 +11,12 @@ public class Mag extends Hero {
     public void attackEnemy(Enemy angryMan) {
         angryMan.takeDamage(DAMAGE);
     }
+
+    public void superPower(Mag mag, Archer archer, Warrior war, DarkElf elf, Zombie zombie) {
+        if (mag.isAlive() && (!archer.isAlive()) && (!war.isAlive())) {
+            int superDamage = DAMAGE + elf.getHealth() + zombie.getHealth();
+            elf.takeDamage(superDamage);
+            zombie.takeDamage(superDamage);
+        }
+    }
 }
