@@ -12,6 +12,9 @@ public class Mag extends Hero {
         angryMan.takeDamage(DAMAGE);
     }
 
+    /*
+    Изменить параметры на массивы Hero[] heroes, Enemy[] enemies
+     */
     public void superPower(Mag mag, Archer archer, Warrior war, DarkElf elf, Zombie zombie) {
         if (mag.isAlive() && (!archer.isAlive()) && (!war.isAlive())) {
             int superDamage = DAMAGE + elf.getHealth() + zombie.getHealth();

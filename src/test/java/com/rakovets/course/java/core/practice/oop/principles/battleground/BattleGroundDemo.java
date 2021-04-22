@@ -14,7 +14,7 @@ public class BattleGroundDemo {
         zombie.attackHero(war);
         System.out.println(war.isAlive());
         System.out.println(war.getHealth());
-        zombie.superPower(zombie);
+        zombie.superPower();
         System.out.println(zombie.getHealth());
 
         DarkElf elf = new DarkElf(300);

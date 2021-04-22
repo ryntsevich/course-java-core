@@ -2,11 +2,11 @@ package com.rakovets.course.java.core.practice.oop.principles.battleground;
 
 public class DarkElf extends Enemy {
     private final int DAMAGE = 50;
-    private int healthDarkElf;
+    private int health;
 
     public DarkElf(int health) {
         super(health);
-        this.healthDarkElf = health;
+        this.health = health;
     }
 
     @Override
@@ -18,11 +18,14 @@ public class DarkElf extends Enemy {
         }
     }
 
+    /*
+    Изменить параметры на массивы
+     */
     public void superPower(DarkElf elf, Zombie zombie) {
         if (elf.isAlive()) {
-            if (elf.getHealth() < healthDarkElf / 2) {
+            if (elf.getHealth() < health / 2) {
                 elf.setHealth(elf.getHealth() + 50);
-                if(zombie.isAlive()) {
+                if (zombie.isAlive()) {
                     zombie.setHealth(zombie.getHealth() + 50);
                 }
             }

@@ -3,13 +3,12 @@ package com.rakovets.course.java.core.practice.oop.principles.battleground;
 import java.util.Random;
 
 public class Zombie extends Enemy {
-    private final int DAMAGE = 200;
-    public int healthZombie;
-
+    private final int DAMAGE = 20;
+    private int startHealth;
 
     public Zombie(int health) {
         super(health);
-        this.healthZombie = health;
+        this.startHealth = health;
     }
 
     @Override
@@ -17,11 +16,11 @@ public class Zombie extends Enemy {
         man.takeDamage(DAMAGE);
     }
 
-    public void superPower(Zombie enemy) {
-        if (enemy.getHealth() <= 0) {
+    public void superPower() {
+        if (this.getHealth() <= 0) {
             Random value = new Random();
             if (value.nextBoolean()) {
-                enemy.setHealth(healthZombie);
+                health = startHealth;
             }
         }
     }

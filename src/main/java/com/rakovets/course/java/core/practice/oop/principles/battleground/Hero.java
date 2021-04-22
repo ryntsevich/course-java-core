@@ -1,7 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.battleground;
 
 public abstract class Hero implements Mortal {
-    private String name;
+    private final String name;
     private int health;
 
     public Hero(String name, int health) {
