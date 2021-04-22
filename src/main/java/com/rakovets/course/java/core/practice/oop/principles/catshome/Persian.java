@@ -1,8 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.catshome;
 
 public class Persian extends Cat {
-    private final double UP_HAPPINESS = 15.0;
-    private final double DOWN_HAPPINESS = -15.0;
+    private final double CHANGING_HAPPINESS = 15.0;
 
     public Persian(String name) {
         super(name);
@@ -20,11 +19,11 @@ public class Persian extends Cat {
 
     @Override
     public void mew(Person user) {
-        user.changeHappiness(DOWN_HAPPINESS);
+        user.changeHappiness(-CHANGING_HAPPINESS);
     }
 
     @Override
     public void purr(Person user) {
-        user.changeHappiness(UP_HAPPINESS);
+        user.changeHappiness(CHANGING_HAPPINESS);
     }
 }

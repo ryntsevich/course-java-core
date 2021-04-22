@@ -6,6 +6,12 @@ public class CatDemo {
         System.out.println(cat1.getName());
         System.out.printf("%s: \"%s\" and \"%s\"", cat1.getName(), cat1.mew(), cat1.purr());
         cat1.setName("Alex");
-        System.out.printf("\n%s: \"%s\" and \"%s\"", cat1.getName(), cat1.mew(), cat1.purr());
+        System.out.printf("\n%s: \"%s\" and \"%s\"\n", cat1.getName(), cat1.mew(), cat1.purr());
+//        System.out.println(cat1.mew());
+        Person user = new Person(20);
+        System.out.println(user.getHappiness());
+        cat1.mew(user);
+        System.out.println(user.getHappiness());
+//        System.out.println(cat1.mew(user));
     }
 }

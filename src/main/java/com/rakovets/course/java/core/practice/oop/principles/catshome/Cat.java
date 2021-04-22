@@ -1,8 +1,7 @@
 package com.rakovets.course.java.core.practice.oop.principles.catshome;
 
 public class Cat {
-    private final double UP_HAPPINESS = 10.0;
-    private final double DOWN_HAPPINESS = -10.0;
+    private final double CHANGING_HAPPINESS = 10.0;
     private String name;
 
     public Cat(String name) {
@@ -18,11 +17,11 @@ public class Cat {
     }
 
     public void mew(Person user) {
-        user.changeHappiness(DOWN_HAPPINESS);
+        user.changeHappiness(-CHANGING_HAPPINESS);
     }
 
     public void purr(Person user) {
-        user.changeHappiness(UP_HAPPINESS);
+        user.changeHappiness(CHANGING_HAPPINESS);
     }
 
     public String getName() {
@@ -32,6 +31,4 @@ public class Cat {
     public void setName(String name) {
         this.name = name;
     }
-
-
 }
