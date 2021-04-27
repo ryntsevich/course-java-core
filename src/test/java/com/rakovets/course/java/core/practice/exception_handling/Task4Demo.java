@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
+import com.rakovets.course.java.core.practice.exception_handling.exception.CustomExceptionForTask4;
+
 public class Task4Demo {
     public static void main(String[] args) {
         Task4 task = new Task4();

@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
+import com.rakovets.course.java.core.practice.exception_handling.exception.CustomExceptionForTask3;
+
 public class Task3 {
     private int health;
 

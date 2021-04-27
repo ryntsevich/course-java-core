@@ -1,5 +1,7 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
+import com.rakovets.course.java.core.practice.exception_handling.exception.CustomExceptionForTask5;
+
 public class Task5 {
     public String getTrim(String str) throws CustomExceptionForTask5 {
         try {
