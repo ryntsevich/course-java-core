@@ -1,6 +1,9 @@
 package com.rakovets.course.java.core.practice.generic_types;
 
-public abstract class Math {
+import java.util.Arrays;
+import java.util.Comparator;
+
+public abstract class Math{
     public static <T extends Number> T getMax(T value1, T value2, T value3) {
         double value1InDouble = value1.doubleValue();
         double value2InDouble = value2.doubleValue();
@@ -16,5 +19,16 @@ public abstract class Math {
         }
 
         return result;
+    }
+
+    @SafeVarargs
+    public static <T extends Number> T getMin(T... values) {
+        Arrays.sort(values, new Comparator<T>() {
+            @Override
+            public int compare(T t, T t1) {
+                return Double.compare(t.doubleValue(), t1.doubleValue());
+            }
+        });
+        return values[0];
     }
 }
