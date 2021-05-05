@@ -59,4 +59,17 @@ public abstract class Math {
         });
         return array[0];
     }
+
+    public static <T extends Number> T[] sortArray(T[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i].doubleValue() < array[j].doubleValue()) {
+                    T value = array[i];
+                    array[i] = array[j];
+                    array[j] = value;
+                }
+            }
+        }
+        return array;
+    }
 }
