@@ -8,8 +8,8 @@ public class ObscureDemo {
         System.out.println(obj.isEmpty());
         System.out.println(obj.orElse(23));
         try {
-            System.out.println(obj.orElseThrow(new NullPointerException("obj is null")));
-        } catch (NullPointerException exception) {
+            System.out.println(obj.orElseThrow(new Exception("obj is null")));
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
         System.out.println(Obscure.<Integer>of(9));

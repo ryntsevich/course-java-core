@@ -3,15 +3,19 @@ package com.rakovets.course.java.core.practice.generic_types;
 public class Obscure<T> {
     private final T field;
 
+    public Obscure(T field) {
+        this.field = field;
+    }
+
     public T get() {
         return field;
     }
 
-    public Boolean isPresent() {
+    public boolean isPresent() {
         return field != null;
     }
 
-    public Boolean isEmpty() {
+    public boolean isEmpty() {
         return field == null;
     }
 
@@ -19,7 +23,7 @@ public class Obscure<T> {
         return this.isPresent() ? field : obj;
     }
 
-    public T orElseThrow(NullPointerException exception) {
+    public T orElseThrow(Exception exception) throws Exception {
         if (this.isPresent()) {
             return field;
         } else {
@@ -28,19 +32,15 @@ public class Obscure<T> {
     }
 
     public static <S> Obscure<S> of(S obj) {
-        return new Obscure<S>(obj);
+        return new Obscure<>(obj);
     }
 
     public static <S> Obscure<S> empty() {
-        return new Obscure<S>(null);
+        return new Obscure<>(null);
     }
 
     @Override
     public String toString() {
         return getClass().getSimpleName() + " " + field;
-    }
-
-    Obscure(T field) {
-        this.field = field;
     }
 }
