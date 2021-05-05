@@ -1,6 +1,6 @@
 package com.rakovets.course.java.core.practice.exception_handling;
 
-import com.rakovets.course.java.core.practice.exception_handling.exception.CustomExceptionForTask5;
+import com.rakovets.course.java.core.practice.exception_handling.exception.CustomForTask5Exception;
 
 public class Task5Demo {
     public static void main(String[] args) {
@@ -8,7 +8,7 @@ public class Task5Demo {
 
         try {
             task.getTrim(null);
-        } catch (CustomExceptionForTask5 customExceptionForTask5) {
+        } catch (CustomForTask5Exception customExceptionForTask5) {
             System.out.println(customExceptionForTask5.getMessage());
             customExceptionForTask5.printStackTrace();
         }
