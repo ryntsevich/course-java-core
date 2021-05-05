@@ -49,4 +49,14 @@ public abstract class Math {
         });
         return array[0];
     }
+
+    public static <T extends Number> T getMinArray(T[] array) {
+        Arrays.sort(array, new Comparator<T>() {
+            @Override
+            public int compare(T t, T t1) {
+                return Double.compare(t.doubleValue(), t1.doubleValue());
+            }
+        });
+        return array[0];
+    }
 }
