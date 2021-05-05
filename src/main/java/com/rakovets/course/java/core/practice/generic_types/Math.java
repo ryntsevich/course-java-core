@@ -39,4 +39,14 @@ public abstract class Math {
         }
         return sum / array.length;
     }
+
+    public static <T extends Number> T getMaxArray(T[] array) {
+        Arrays.sort(array, new Comparator<T>() {
+            @Override
+            public int compare(T t, T t1) {
+                return Double.compare(t1.doubleValue(), t.doubleValue());
+            }
+        });
+        return array[0];
+    }
 }
