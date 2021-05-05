@@ -5,8 +5,7 @@ public class Task7 {
         int value = (int) (Math.random() * 2);
         if (value == 1) {
             throw new NullPointerException("NullPointerException");
-        } else {
-            throw new ClassNotFoundException("ClassNotFoundException");
         }
+        System.out.println("finish method");
     }
 }
