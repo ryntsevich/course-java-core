@@ -3,7 +3,7 @@ package com.rakovets.course.java.core.practice.generic_types;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public abstract class Math{
+public abstract class Math {
     public static <T extends Number> T getMax(T value1, T value2, T value3) {
         double value1InDouble = value1.doubleValue();
         double value2InDouble = value2.doubleValue();
@@ -30,5 +30,13 @@ public abstract class Math{
             }
         });
         return values[0];
+    }
+
+    public static <T extends Number> double getArithmeticMean(T[] array) {
+        double sum = 0;
+        for (T t : array) {
+            sum += t.doubleValue();
+        }
+        return sum / array.length;
     }
 }
