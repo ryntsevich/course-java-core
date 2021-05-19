@@ -1,4 +1,4 @@
-package com.rakovets.course.java.core.practice.jcf.list;
+package com.rakovets.course.java.core.practice.jcf.list.studio;
 
 import com.rakovets.course.java.core.practice.jcf.list.studio.Actor;
 import com.rakovets.course.java.core.practice.jcf.list.studio.Studio;
